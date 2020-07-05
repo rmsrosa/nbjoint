@@ -1,4 +1,4 @@
-# NBJoint - Jupyter Notebook Joint
+# NBJoint - Jupyter Notebook Joint Module
 
 ![Main Tests Workflow Status](https://github.com/rmsrosa/nbjoint/workflows/Main%20Tests/badge.svg) ![Flake8 Lint Test Workflow Status](https://github.com/rmsrosa/nbjoint/workflows/Flake8%20Lint%20Test/badge.svg) ![PDF Export Test Workflow Status](https://github.com/rmsrosa/nbjoint/workflows/PDF%20Export%20Test/badge.svg) ![readthedocs badge](https://readthedocs.org/projects/nbjoint/badge/)
 
@@ -10,6 +10,7 @@
 
 ## Table of Contents
 
+- [Naming](#naming)
 - [Description](#description)
 - [Examples](#examples)
 - [Installation](#installation)
@@ -17,6 +18,16 @@
 - [Development](#development)
 - [Maintainer](#maintainer)
 - [License](#license)
+
+## Naming
+
+This module was renamed from [NBBinder](https://github.com/rmsrosa/nbbinder), due to naming conflict with [Binder](https://mybinder.org).
+
+The new name, [NBJoint](https://github.com/rmsrosa/nbjoint), is motivated by one of the meanings of the word "joint". [According to Merriam-Webster](https://www.merriam-webster.com/dictionary/joint), "joint", as a verb, means
+
+> "to unite by a joint : fit together"
+
+This module *joints* several notebooks together, to form a cohesive set of notes, with table of contents, common headers, navigation bars, among other things.
 
 ## Description
 
