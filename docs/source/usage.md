@@ -2,7 +2,7 @@
 
 ## Numbering the collection of notebooks
 
-**NBBinder** binds a collection of notebooks belonging to a specified directory.
+**NBJoint** joints a collection of notebooks belonging to a specified directory.
 
 In order to be processed, each notebook in the collection should start with a pair of *file numberings*, separated by a dot and followed by a dash.
 
@@ -218,9 +218,9 @@ References
 
 Notice the different forms of subsectioning.
 
-## The binding process
+## The jointing process
 
-Binding is achieved with the function `bind()`. Depending on the arguments given, this function calls the following functions, which take care of each of the main features of the notebook binder:
+Jointing is achieved with the function `joint()`. Depending on the arguments given, this function calls the following functions, which take care of each of the main features of the notebook jointer:
 
 - `reindex()`: reorder the notebooks when a new notebook is to be inserted between others or whether there are gaps in the indices;
 - `add_contents()`: adds the Table of Contents to a selected "Contents" file;
@@ -229,14 +229,14 @@ Binding is achieved with the function `bind()`. Depending on the arguments given
 - `add_navigators()`: adds navigation bars to the top and bottom of each notebook.
 - `export_notebooks()`: exports the notebooks to any of the different formats as provided by [nbconvert](https://pypi.org/project/nbconvert/): HTML, LaTeX, PDF, Reveal JS, Markdown (md), ReStructured Text (rst), executable script. Notice that `add_badges()` can be used to link to the exported notebooks, useful, for instance, to access slides of the notebooks for presentation in class.
 
-The arguments to the function `bind()` can be given directly or via a configuration file.
+The arguments to the function `joint()` can be given directly or via a configuration file.
 
-A common argument to all these functions is `path_to_notes`, which is a string denoting the folder in which the notes are located. It is either an absolute path or a relative path from the script that calls `nbbinder.bind()`. The remaining arguments are for each of the functions above.
+A common argument to all these functions is `path_to_notes`, which is a string denoting the folder in which the notes are located. It is either an absolute path or a relative path from the script that calls `nbjoint.joint()`. The remaining arguments are for each of the functions above.
 
-We can start explaining the arguments to `bind()` by the first statements defining the function:
+We can start explaining the arguments to `joint()` by the first statements defining the function:
 
 ```python
-def bind(aux: str = None,
+def joint(aux: str = None,
          path_to_notes: str = None,
          reindexing: list = None,
          contents: list = None,
@@ -347,7 +347,7 @@ The configuration file is expected to be in the [YAML](https://en.wikipedia.org/
 The function parses the configuration file to a python dictionary. The expected keys are the following:
 
 ```yaml
-# YAML configuration file for NBBinder
+# YAML configuration file for NBJoint
 
 version:
 
@@ -384,7 +384,7 @@ exports:
     exporter_args:
 ```
 
-The keys `version` and `path_to_notes` are the **only mandatory ones**. The remaining keys are optional. The key `version` is checked for compatibility with the version of `nbbinder`.
+The keys `version` and `path_to_notes` are the **only mandatory ones**. The remaining keys are optional. The key `version` is checked for compatibility with the version of `nbjoint`.
 
 The order of the main keys is not important; the module takes care of them regardless. There are some rules used in the process:
 
@@ -393,9 +393,9 @@ The order of the main keys is not important; the module takes care of them regar
 Here is the configuration file `config_nb_alice.yml` used for testing the package. It is available in the subdirectory `tests` of the root directory of the repository.
 
 ```yaml
-# Configuration file for the python module NBBinder
+# Configuration file for the python module NBJoint
 
-version: 0.13a
+version: 0.14a
 
 path_to_notes: nb_builds/nb_alice
 
@@ -404,7 +404,7 @@ contents:
   toc_title: Table of Contents
   show_index_in_toc: True
 
-header: "NBBinder test on a collection of notebooks named after the chapters of 'Alice's Adventures in Wonderland'"
+header: "NBJoint test on a collection of notebooks named after the chapters of 'Alice's Adventures in Wonderland'"
 
 navigators:
   core_navigators:
@@ -413,7 +413,7 @@ navigators:
   show_index_in_nav: False
 ```
 
-## Binding via the configuration file
+## Jointing via the configuration file
 
 Suppose the notebooks are in a subsubdirectory named `nb_alice`, as indicated by the key `path_to_notes`, in the configuration file. The indexed notebooks are the following:
 
@@ -433,36 +433,36 @@ Suppose the notebooks are in a subsubdirectory named `nb_alice`, as indicated by
 12.00-Alice's_Evidence.ipynb
 ```
 
-Then, we import the module in a script in the folder `tests` and use the `bind()` function with the configuration file `config_nb_alice.yml` as argument:
+Then, we import the module in a script in the folder `tests` and use the `joint()` function with the configuration file `config_nb_alice.yml` as argument:
 
 ```python
-import nbbinder as nbb
-nbb.bind('config_nb_alice.yml')
+import nbjoint as nbj
+nbj.joint('config_nb_alice.yml')
 ```
 
 Or we execute it as a script in the command line:
 
 ```bash
-./nbbinder.py config_nb_alice.yml
+./nbjoint.py config_nb_alice.yml
 ```
 
 We may visualize the result looking at a printscreen of the updated `00.00-Alice's_Adventures_in_Wonderland.ipynb`:
 
 ![Screenshot of Alice's Adventures in Wonderland Jupyter notebook](nb_alice_contents.png)
 
-## Binding via arguments
+## Jointing via arguments
 
-Instead of using a configuration file, we may call `bind()` directly with the desired arguments:
+Instead of using a configuration file, we may call `joint()` directly with the desired arguments:
 
 ```python
-nbb.bind(
+nbj.joint(
     path_to_notes = 'nb_builds/nb_alice',
     contents={
         'toc_nb_name': "00.00-Alice's_Adventures_in_Wonderland.ipynb",
         'toc_title': 'Table of Contents',
         'show_index_in_toc': True
     },
-    header="NBBinder test on a collection of notebooks named after the chapters of 'Alice's Adventures in Wonderland'",
+    header="NBJoint test on a collection of notebooks named after the chapters of 'Alice's Adventures in Wonderland'",
     navigators={
         'core_navigators': [
             "00.00-Alice's_Adventures_in_Wonderland.ipynb"
@@ -503,7 +503,7 @@ Suppose we want to add a new notebook `The_History_of_Grammar.ipynb` as Chapter 
 AA.00-Bibliography.ipynb
 ```
 
-Usually, the notebook with the character `&` is not recognized as an indexed notebook and is not included in the collection of notebooks to be bound. However, if `bind()` (or `reindex()`) is called with the argument `insert` as `True`, then the notebooks are renamed and the collection becomes
+Usually, the notebook with the character `&` is not recognized as an indexed notebook and is not included in the collection of notebooks to be bound. However, if `joint()` (or `reindex()`) is called with the argument `insert` as `True`, then the notebooks are renamed and the collection becomes
 
 ```text
 00.00-Front_Page.ipynb
@@ -535,7 +535,7 @@ A0.00-The_History_of_Grammar.ipynb
 AA.00-Bibliography.ipynb
 ```
 
-Then, if `bind()` (or `reindex()`) is called with the argument `tighten` as `True`, the notebooks are renamed and the collection becomes
+Then, if `joint()` (or `reindex()`) is called with the argument `tighten` as `True`, the notebooks are renamed and the collection becomes
 
 ```text
 00.00-Front_Page.ipynb
@@ -554,7 +554,7 @@ AA.00-Bibliography.ipynb
 
 The cells for the **Table of Contents**, the **headers**, the **badges**, and the **navigators** are marked with specific *html comments*, so they do not show up when the cells are rendered, except when editing the cell. The **markers** are automatically included by the module.
 
-Except for the **Table of Contents**, **NBBinder** automatically removes any previous marked cell for cleaning up purposes. In particular, the location of these other marked cells are always the same. As for the **Table of Contents**, however, only its contents is deleted. If you desire to add the **Table of Contents** in a particular place inside a notebook, just add the marker to that place, or move a previously generated **Table of Contents** to the desired position.
+Except for the **Table of Contents**, **NBJoint** automatically removes any previous marked cell for cleaning up purposes. In particular, the location of these other marked cells are always the same. As for the **Table of Contents**, however, only its contents is deleted. If you desire to add the **Table of Contents** in a particular place inside a notebook, just add the marker to that place, or move a previously generated **Table of Contents** to the desired position.
 
 The markers are python constants and are given as
 
@@ -576,4 +576,4 @@ The **header** cell is always the first one in the notebook, when present.
 
 The **navigator** cells appear in two places in each notebook: as the last cell, for the bottom navigators, and as either the first or the second cell, depending on whether there is a **header** cell or not.
 
-The **Table of Contents** cell can vary in position. It can be given a priori at some place in the notebook file, or it can be inserted automatically by **NBBinder**. In the former case, the author of the notebook is responsible for opening up a cell and typing up the marker in the beginning of the cell, or just wait for the first run of nbbinder to place it in the standart position and them move it somewhere else. The standart position set up by **NBBinder** is either the second to last cell, if there is a bottom **navigator** cell, or as the very last cell, otherwise. It must be stressed that the module will first look for the marker somewhere in the notebook and use the corresponding cell if it finds it. Only if it doesn't find it is that it will add a cell as the last or second to last cell.
+The **Table of Contents** cell can vary in position. It can be given a priori at some place in the notebook file, or it can be inserted automatically by **NBJoint**. In the former case, the author of the notebook is responsible for opening up a cell and typing up the marker in the beginning of the cell, or just wait for the first run of nbjoint to place it in the standart position and them move it somewhere else. The standart position set up by **NBJoint** is either the second to last cell, if there is a bottom **navigator** cell, or as the very last cell, otherwise. It must be stressed that the module will first look for the marker somewhere in the notebook and use the corresponding cell if it finds it. Only if it doesn't find it is that it will add a cell as the last or second to last cell.
