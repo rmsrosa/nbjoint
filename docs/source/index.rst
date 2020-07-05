@@ -1,12 +1,11 @@
-.. NBBinder documentation master file, created by
-   sphinx-quickstart on Wed Dec 25 22:01:21 2019.
+.. Documentation master file, created by sphinx-quickstart
    You can adapt this file completely to your liking,
    but it should at least contain the root `toctree` directive.
 
-Welcome to NBBinder's documentation!
+Welcome to NBJoint's documentation!
 ====================================
 
-**NBBinder** generates a navigable book-like structure to a collection of
+**NBJoint** generates a navigable book-like structure to a collection of
 Jupyter notebooks.
 
 .. toctree::
@@ -23,7 +22,7 @@ Jupyter notebooks.
 .. toctree::
    :hidden:
 
-   nbbinder_automodule
+   nbjoint_automodule
 
 Indices:
 --------

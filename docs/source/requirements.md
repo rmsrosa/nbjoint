@@ -1,8 +1,8 @@
 # Requirements
 
-## For the main module nbbinder
+## For the main module nbjoint
 
-The `nbbinder` module uses the standard libraries
+The `nbjoint` module uses the standard libraries
 
 - [os](https:/docs.python.org/3/library/os.html)
 - [sys](https:/docs.python.org/3/library/sys.html)
@@ -19,12 +19,12 @@ and the nonstandard libraries
 - [nbconvert](https://pypi.org/project/nbconvert/)
 - [pyyaml](https://pypi.org/project/PyYAML/).
 
-The `nbformat` library is used to interact with the jupyter notebooks, the `nbconvert` library is used to export the notebooks to other formats (e.g. slides, markdown, pdf), the `yaml` package is used, of course, to read the `*.yml` configuration files, and the `packaging` library is to compare the version of the `nbbinder` module with the version in the configuration file
+The `nbformat` library is used to interact with the jupyter notebooks, the `nbconvert` library is used to export the notebooks to other formats (e.g. slides, markdown, pdf), the `yaml` package is used, of course, to read the `*.yml` configuration files, and the `packaging` library is to compare the version of the `nbjoint` module with the version in the configuration file
 and check for compatibility.
 
 ## For testing the module
 
-For testing `nbbinder`, the scripts in the `tests` subdirectory also use the standard module
+For testing `nbjoint`, the scripts in the `tests` subdirectory also use the standard module
 
 - [shutil](https:/docs.python.org/3/library/shutil.html)
 
@@ -34,6 +34,6 @@ and the nonstandard module
 
 ## For packaging the module
 
-Exclusively for packaging `nbbinder` for [PyPI](https://pypi.org) and [TestPyPI](https://test.pypi.org/), the following nonstandard package is used:
+Exclusively for packaging `nbjoint` for [PyPI](https://pypi.org) and [TestPyPI](https://test.pypi.org/), the following nonstandard package is used:
 
 - [setuptools](https://pypi.org/project/setuptools/)

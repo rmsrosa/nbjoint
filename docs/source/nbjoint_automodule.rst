@@ -3,9 +3,9 @@
    were included directly in index.rst, then all the docstrings
    would be shown in the welcome page, which would be unpleasant.
 
-nbbinder
-========
+nbjoint
+=======
 
-.. automodule:: nbbinder
+.. automodule:: nbjoint
    :members:
    :undoc-members:

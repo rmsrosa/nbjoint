@@ -17,8 +17,8 @@ sys.path.insert(0, os.path.abspath('../../'))
 
 # -- Project information -----------------------------------------------------
 
-project = 'NBBinder'
-copyright = '2019, Ricardo M. S. Rosa'
+project = 'NBJoint'
+copyright = '2020, Ricardo M. S. Rosa'
 author = 'Ricardo M. S. Rosa'
 
 

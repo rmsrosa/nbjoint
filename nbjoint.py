@@ -10,7 +10,7 @@ __copyright__ = """Modified work Copyright (c) 2019 Ricardo M S Rosa
 Original work Copyright (c) 2016 Jacob VanderPlas
 """
 __license__ = "MIT"
-__version__ = "0.13a3"
+__version__ = "0.14a0"
 __config_version__ = "0.13a"
 
 import os
@@ -70,8 +70,9 @@ NEXT_TEMPLATE = "| [{title} ->]({url})"
 
 # Link templates for the badges
 BADGE_LINK = \
-    """<a href="{badge_url}/{badge_filename}"><img align="left" \
-src="{badge_src}" alt="{badge_title}" title="{badge_title}"></a>"""
+    """<a href="{badge_url}/{badge_filename}" target="_blank">\
+<img align="left" src="{badge_src}" alt="{badge_title}" \
+title="{badge_title}"></a>"""
 
 BADGE_SHIELD_SRC = \
     "https://img.shields.io/badge/{badge_label}-{badge_message}-{badge_color}"
@@ -406,7 +407,9 @@ def get_contents(path_to_notes: str = None,
         The table of contents.
     """
 
-    contents = TOC_MARKER + "\n## [" + toc_title + "](#)\n\n"
+    contents = TOC_MARKER + "\n"
+    if toc_title:
+        contents += "## [" + toc_title + "](#)\n\n"
     for item in yield_contents(path_to_notes, show_index_in_toc):
         contents += item + "\n"
 
@@ -645,7 +648,8 @@ list of available exporters listed in \
 
     if os.path.isdir(export_path):
         for file in os.listdir(export_path):
-            os.remove(os.path.join(export_path, file))
+            if file.endswith('.ipynb'):
+                os.remove(os.path.join(export_path, file))
     else:
         os.mkdir(export_path)
 
@@ -1051,7 +1055,7 @@ def add_navigators(path_to_notes: str = None,
                 or (len(nb.cells) > 2
                     and not nb.cells[-1].source.startswith(NAVIGATOR_MARKER)):
             nb.cells.append(new_markdown_cell(source=navbar_bottom,
-                                              metadata=SLIDE_SHOW))
+                                              metadata=SLIDE_SKIP))
 
         nbformat.write(nb, nb_file)
 
