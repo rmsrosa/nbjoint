@@ -1,4 +1,4 @@
-# Configuration file for the python module NBBinder
+# Configuration file for the python module NBJoint
 
 version: 0.13a
 
@@ -9,7 +9,7 @@ contents:
   toc_title: Table of Contents
   show_index_in_toc: True
 
-header: "[*NBBinder test on a collection of notebooks about some thermodynamic properperties of water*](https://github.com/rmsrosa/nbbinder)"
+header: "[*NBJoint test on a collection of notebooks about some thermodynamic properperties of water*](https://github.com/rmsrosa/nbjoint)"
 
 navigators:
   core_navigators:
@@ -20,13 +20,13 @@ navigators:
 
 badges:
   - title: View Markdown
-    url: https://nbviewer.jupyter.org/github/rmsrosa/nbbinder/blob/master/tests/nb_export_builds/nb_water_md
+    url: https://nbviewer.jupyter.org/github/rmsrosa/nbjoint/blob/master/tests/nb_export_builds/nb_water_md
     extension: .md
     label: view
     message: markdown
     color: orange
   - title: View PDF
-    url: https://nbviewer.jupyter.org/github/rmsrosa/nbbinder/blob/master/tests/nb_export_builds/nb_water_pdf
+    url: https://nbviewer.jupyter.org/github/rmsrosa/nbjoint/blob/master/tests/nb_export_builds/nb_water_pdf
     extension: .pdf
     label: view
     message: pdf

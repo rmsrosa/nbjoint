@@ -1,7 +1,6 @@
-#!/anaconda3/envs/nbbinder/bin/python
 # -*- coding: utf-8 -*-
 '''
-PDF Export NBBinder test
+PDF Export NBJoint test
 '''
 
 import os
@@ -13,7 +12,7 @@ import basetest as bt
 logging.basicConfig(level=logging.WARNING)
 
 #bt.logger.setLevel(logging.INFO)
-#nbb.logger.setLevel(logging.INFO)
+#nbj.logger.setLevel(logging.INFO)
 
 # Directories
 BUILD_DIR = 'nb_export_builds'
@@ -25,6 +24,6 @@ if __name__ == '__main__':
 
     bt.create_build_dir(BUILD_DIR)
 
-    bt.bind_test(os.path.join(SOURCE_DIR, 'nb_water'),
-                 os.path.join(BUILD_DIR, 'nb_water_export'),
-                 os.path.join(SOURCE_DIR, 'config_nb_water_export.yml'))
+    bt.joint_test(os.path.join(SOURCE_DIR, 'nb_water'),
+                  os.path.join(BUILD_DIR, 'nb_water_export'),
+                  os.path.join(SOURCE_DIR, 'config_nb_water_export.yml'))

@@ -1,7 +1,6 @@
-#!/anaconda3/envs/nbbinder/bin/python
 # -*- coding: utf-8 -*-
 '''
-Main NBBinder test
+Main NBJoint test
 '''
 
 import os
@@ -9,13 +8,13 @@ import logging
 
 import basetest as bt
 
-from context import nbbinder as nbb
+from context import nbjoint as nbj
 
 # Logging level
 logging.basicConfig(level=logging.WARNING)
 
 # bt.logger.setLevel(logging.INFO)
-# nbb.logger.setLevel(logging.INFO)
+# nbj.logger.setLevel(logging.INFO)
 
 # Directories
 BUILD_DIR = 'nb_builds'
@@ -53,17 +52,17 @@ if __name__ == '__main__':
     logging.info("\n# Reindexing the notebooks in %s",
                  os.path.join(os.path.dirname(__file__),
                               BUILD_DIR, 'nb_alice'))
-    nbb.reindex(os.path.join(BUILD_DIR, 'nb_alice'))
+    nbj.reindex(os.path.join(BUILD_DIR, 'nb_alice'))
 
-    logging.info("\n# Binding 'nb_alice' notebooks with parameters")
+    logging.info("\n# Jointing 'nb_alice' notebooks with parameters")
 
-    nbb.bind(
+    nbj.joint(
         path_to_notes=os.path.join(BUILD_DIR, 'nb_alice'),
         contents={
             'toc_nb_name': "00.00-Alice's_Adventures_in_Wonderland.ipynb",
             'show_index_in_toc': True
             },
-        header="NBBinder test with 'Alice's Adventures in Wonderland'",
+        header="NBJoint test with 'Alice's Adventures in Wonderland'",
         navigators={
             'core_navigators':
                 ["00.00-Alice's_Adventures_in_Wonderland.ipynb"],
@@ -71,9 +70,9 @@ if __name__ == '__main__':
             }
         )
 
-    bt.bind_test(os.path.join(BUILD_DIR, 'nb_alice'),
-                 os.path.join(BUILD_DIR, 'nb_alice'),
-                 os.path.join(SOURCE_DIR, 'config_nb_alice.yml'))
+    bt.joint_test(os.path.join(BUILD_DIR, 'nb_alice'),
+                  os.path.join(BUILD_DIR, 'nb_alice'),
+                  os.path.join(SOURCE_DIR, 'config_nb_alice.yml'))
 
     # Tests with nb_grammar
 
@@ -109,28 +108,28 @@ if __name__ == '__main__':
     logging.info("\n# Reindexing the notebooks in %s",
                  os.path.join(os.path.dirname(__file__),
                               BUILD_DIR, 'nb_grammar'))
-    nbb.reindex(os.path.join(BUILD_DIR, 'nb_grammar'))
+    nbj.reindex(os.path.join(BUILD_DIR, 'nb_grammar'))
 
     bt.create_notebooks(os.path.join(BUILD_DIR, 'nb_grammar_bound'),
                         NB_GRAMMAR)
 
-    bt.bind_test(os.path.join(BUILD_DIR, 'nb_grammar_bound'),
-                 os.path.join(BUILD_DIR, 'nb_grammar_bound'),
-                 os.path.join(SOURCE_DIR, 'config_nb_grammar.yml'))
+    bt.joint_test(os.path.join(BUILD_DIR, 'nb_grammar_bound'),
+                  os.path.join(BUILD_DIR, 'nb_grammar_bound'),
+                  os.path.join(SOURCE_DIR, 'config_nb_grammar.yml'))
 
-    bt.bind_test(os.path.join(BUILD_DIR, 'nb_grammar_bound'),
-                 os.path.join(BUILD_DIR, 'nb_grammar_bound'),
-                 os.path.join(SOURCE_DIR, 'config_nb_grammar_no_header.yml'))
+    bt.joint_test(os.path.join(BUILD_DIR, 'nb_grammar_bound'),
+                  os.path.join(BUILD_DIR, 'nb_grammar_bound'),
+                  os.path.join(SOURCE_DIR, 'config_nb_grammar_no_header.yml'))
 
-    bt.bind_test(os.path.join(BUILD_DIR, 'nb_grammar_bound'),
-                 os.path.join(BUILD_DIR, 'nb_grammar_bound'),
-                 os.path.join(SOURCE_DIR, 'config_nb_grammar_reindex.yml'))
+    bt.joint_test(os.path.join(BUILD_DIR, 'nb_grammar_bound'),
+                  os.path.join(BUILD_DIR, 'nb_grammar_bound'),
+                  os.path.join(SOURCE_DIR, 'config_nb_grammar_reindex.yml'))
 
-    logging.info("\n# Binding the notebooks in %s with 'nbb.bind()'",
+    logging.info("\n# Jointing the notebooks in %s with 'nbj.joint()'",
                  os.path.join(os.path.dirname(__file__),
                               BUILD_DIR, 'nb_grammar_bound'))
 
-    nbb.bind(
+    nbj.joint(
         path_to_notes=os.path.join(BUILD_DIR, 'nb_grammar_bound'),
         reindexing={
             'insert': True,
@@ -141,7 +140,7 @@ if __name__ == '__main__':
             'toc_title': 'Table of Contents',
             'show_index_in_toc': True
         },
-        header="Grammar-book test for the NBBinder module",
+        header="Grammar-book test for the NBJoint module",
         navigators={
             'core_navigators': [
                 '00.00-Front_Page.ipynb',
@@ -153,13 +152,13 @@ if __name__ == '__main__':
             {
                 'title': 'View in NBViewer',
                 'url': 'https://nbviewer.jupyter.org/github/rmsrosa/\
-nbbinder/blob/master/tests/nb_builds/nb_alice',
+nbjoint/blob/master/tests/nb_builds/nb_alice',
                 'label': 'view in',
                 'message': 'nbviewer',
                 'color': 'orange'},
             {
                 'title': 'View Markdown',
-                'url': 'https://github.com/rmsrosa/nbbinder/blob/master/\
+                'url': 'https://github.com/rmsrosa/nbjoint/blob/master/\
 tests/nb_builds/nb_grammar_md',
                 'extension': '.md',
                 'label': 'view',
@@ -204,7 +203,7 @@ tests/nb_builds/nb_grammar_md',
     logging.info("\n# Reindexing the notebooks in %s",
                  os.path.join(os.path.dirname(__file__),
                               BUILD_DIR, 'nb_grammar_insert'))
-    nbb.reindex(os.path.join(BUILD_DIR, 'nb_grammar_insert'), insert=True)
+    nbj.reindex(os.path.join(BUILD_DIR, 'nb_grammar_insert'), insert=True)
 
     # Tests with nb_grammar_tighten
 
@@ -241,7 +240,7 @@ tests/nb_builds/nb_grammar_md',
     logging.info("\n# Reindexing the notebooks in %s",
                  os.path.join(os.path.dirname(__file__),
                               BUILD_DIR, 'nb_grammar_tighten'))
-    nbb.reindex(os.path.join(BUILD_DIR, 'nb_grammar_tighten'), tighten=True)
+    nbj.reindex(os.path.join(BUILD_DIR, 'nb_grammar_tighten'), tighten=True)
 
     # Test with preheaders
 
@@ -267,12 +266,12 @@ tests/nb_builds/nb_grammar_md',
     bt.create_notebooks(os.path.join(BUILD_DIR, 'nb_preheader'),
                         NB_PREHEADER)
 
-    bt.bind_test(os.path.join(BUILD_DIR, 'nb_preheader'),
-                 os.path.join(BUILD_DIR, 'nb_preheader'),
-                 os.path.join(SOURCE_DIR, 'config_nb_preheader.yml'))
+    bt.joint_test(os.path.join(BUILD_DIR, 'nb_preheader'),
+                  os.path.join(BUILD_DIR, 'nb_preheader'),
+                  os.path.join(SOURCE_DIR, 'config_nb_preheader.yml'))
 
     # Tests with nb_water
 
-    bt.bind_test(os.path.join(SOURCE_DIR, 'nb_water'),
-                 os.path.join(BUILD_DIR, 'nb_water'),
-                 os.path.join(SOURCE_DIR, 'config_nb_water.yml'))
+    bt.joint_test(os.path.join(SOURCE_DIR, 'nb_water'),
+                  os.path.join(BUILD_DIR, 'nb_water'),
+                  os.path.join(SOURCE_DIR, 'config_nb_water.yml'))

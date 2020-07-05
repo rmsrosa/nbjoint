@@ -1,4 +1,4 @@
-# Configuration file for the python module NBBinder
+# Configuration file for the python module NBJoint
 
 version: 0.13a
 
@@ -9,7 +9,7 @@ contents:
   toc_title: Table of Contents
   show_index_in_toc: True
 
-header: "[*NBBinder test on a collection of notebooks about some thermodynamic properperties of water*](https://github.com/rmsrosa/nbbinder)"
+header: "[*NBJoint test on a collection of notebooks about some thermodynamic properperties of water*](https://github.com/rmsrosa/nbjoint)"
 
 navigators:
   core_navigators:
@@ -20,18 +20,18 @@ navigators:
 
 badges:
   - title: Open in Google Colab
-    url: https://colab.research.google.com/github/rmsrosa/nbbinder/blob/master/tests/nb_builds/nb_water
+    url: https://colab.research.google.com/github/rmsrosa/nbjoint/blob/master/tests/nb_builds/nb_water
     src: https://colab.research.google.com/assets/colab-badge.svg
   - title: Open in binder
-    url: https://mybinder.org/v2/gh/rmsrosa/nbbinder/master?filepath=tests/nb_builds/nb_water
+    url: https://mybinder.org/v2/gh/rmsrosa/nbjoint/master?filepath=tests/nb_builds/nb_water
     src: https://mybinder.org/badge.svg
   - title: View in NBViewer
-    url: https://nbviewer.jupyter.org/github/rmsrosa/nbbinder/blob/master/tests/nb_builds/nb_water
+    url: https://nbviewer.jupyter.org/github/rmsrosa/nbjoint/blob/master/tests/nb_builds/nb_water
     label: view in
     message: nbviewer
     color: orange
   - title: View Slides
-    url: https://nbviewer.jupyter.org/github/rmsrosa/nbbinder/blob/master/tests/nb_builds/nb_water_slides
+    url: https://nbviewer.jupyter.org/github/rmsrosa/nbjoint/blob/master/tests/nb_builds/nb_water_slides
     extension: .slides.html
     label: view
     message: slides

@@ -1,4 +1,4 @@
-# Configuration file for the python module NBBinder
+# Configuration file for the python module NBJoint
 
 version: 0.13a
 
@@ -9,7 +9,7 @@ contents:
   toc_title: Table of Contents
   show_index_in_toc: True
 
-header: "NBBinder test on a collection of notebooks named after the chapters of 'Alice's Adventures in Wonderland'"
+header: "NBJoint test on a collection of notebooks named after the chapters of 'Alice's Adventures in Wonderland'"
 
 navigators:
   core_navigators:

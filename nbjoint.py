@@ -1,12 +1,11 @@
-#!/anaconda3/envs/nbbinder/bin/python
 # -*- coding: utf-8 -*-
 """
-**NBBinder** generates a navigable book-like structure to a collection of
+**NBJoint** generates a navigable book-like structure to a collection of
 Jupyter notebooks.
 """
 
 __author__ = "Ricardo M. S. Rosa <rmsrosa@gmail.com>"
-__homepage__ = "http://github.com/rmsrosa/nbbinder"
+__homepage__ = "http://github.com/rmsrosa/nbjoint"
 __copyright__ = """Modified work Copyright (c) 2019 Ricardo M S Rosa
 Original work Copyright (c) 2016 Jacob VanderPlas
 """
@@ -103,7 +102,7 @@ def indexed_notebooks(path_to_notes: str = None) -> list:
     ----------
     path_to_notes : str
         The path to the directory that contains the notebooks, either
-        absolute or relative to the script that calls `nbbinder.bind()`.
+        absolute or relative to the script that calls `nbjoint.joint()`.
 
     Returns
     -------
@@ -180,7 +179,7 @@ def cleanup_marker_cells(path_to_notes: str = None, marker: str = None,
     ----------
     path_to_notes : str
         The path to the directory that contains the notebooks, either
-        absolute or relative to the script that calls `nbbinder.bind()`.
+        absolute or relative to the script that calls `nbjoint.joint()`.
 
     marker : str
         The marker to be searched for.
@@ -222,7 +221,7 @@ def get_nb_title(path_to_notes: str = None, nb_name: str = None) -> str:
     ----------
     path_to_notes : str
         The path to the directory that contains the notebooks, either
-        absolute or relative to the script that calls `nbbinder.bind()`.
+        absolute or relative to the script that calls `nbjoint.joint()`.
 
     nb_name : str
         The name of the jupyter notebook file.
@@ -250,7 +249,7 @@ def get_nb_full_entry(path_to_notes: str = None,
     ----------
     path_to_notes : str
         The path to the directory that contains the notebooks, either
-        absolute or relative to the script that calls `nbbinder.bind()`.
+        absolute or relative to the script that calls `nbjoint.joint()`.
 
     nb_name : str
         The name of the jupyter notebook file.
@@ -325,7 +324,7 @@ def get_nb_entry(path_to_notes: str = None,
     ----------
     path_to_notes : str
         The path to the directory that contains the notebooks, either
-        absolute or relative to the script that calls `nbbinder.bind()`.
+        absolute or relative to the script that calls `nbjoint.joint()`.
 
     nb_name : str
         The name of the jupyter notebook file.
@@ -359,7 +358,7 @@ def yield_contents(path_to_notes: str = None,
     ----------
     path_to_notes : str
         The path to the directory that contains the notebooks, either
-        absolute or relative to the script that calls `nbbinder.bind()`.
+        absolute or relative to the script that calls `nbjoint.joint()`.
 
     show_index_in_toc : bool
         Whether to display the navigator with the chapter
@@ -390,7 +389,7 @@ def get_contents(path_to_notes: str = None,
     ----------
     path_to_notes : str
         The path to the directory that contains the notebooks, either
-        absolute or relative to the script that calls `nbbinder.bind()`.
+        absolute or relative to the script that calls `nbjoint.joint()`.
 
     toc_title : str
         Text to be displayed as the title for the table of contents cell,
@@ -425,7 +424,7 @@ def insert_notebooks(path_to_notes: str = None) -> None:
     ----------
     path_to_notes : str
         The path to the directory that contains the notebooks, either
-        absolute or relative to the script that calls `nbbinder.bind()`.
+        absolute or relative to the script that calls `nbjoint.joint()`.
     """
 
     nb_names_ins = sorted(nb for nb in os.listdir(path_to_notes)
@@ -508,7 +507,7 @@ def tighten_notebooks(path_to_notes: str = None) -> None:
     ----------
     path_to_notes : str
         The path to the directory that contains the notebooks, either
-        absolute or relative to the script that calls `nbbinder.bind()`.
+        absolute or relative to the script that calls `nbjoint.joint()`.
     """
 
     nb_names = sorted(nb for nb in os.listdir(path_to_notes) if REG.match(nb))
@@ -589,7 +588,7 @@ def reindex(path_to_notes: str = None,
     ----------
     path_to_notes : str
         The path to the directory that contains the notebooks, either
-        absolute or relative to the script that calls `nbbinder.bind()`.
+        absolute or relative to the script that calls `nbjoint.joint()`.
 
     insert : bool
         Whether to insert notebooks in the collection or not.
@@ -622,7 +621,7 @@ def export_notebooks(path_to_notes: str = None,
     ----------
     path_to_notes : str
         The path to the directory that contains the notebooks, either
-        absolute or relative to the script that calls `nbbinder.bind()`.
+        absolute or relative to the script that calls `nbjoint.joint()`.
 
     export_path : str
         The path to the directory where the exported, or converted,
@@ -702,7 +701,7 @@ def add_contents(path_to_notes: str = None,
     ----------
     path_to_notes : str
         The path to the directory that contains the notebooks, either
-        absolute or relative to the script that calls `nbbinder.bind()`.
+        absolute or relative to the script that calls `nbjoint.joint()`.
 
     toc_nb_name : str
         filename of the notebook in which the table of contents
@@ -767,7 +766,7 @@ def add_headers(path_to_notes: str = None, header: str = None) -> None:
     ----------
     path_to_notes : str
         The path to the directory that contains the notebooks, either
-        absolute or relative to the script that calls `nbbinder.bind()`.
+        absolute or relative to the script that calls `nbjoint.joint()`.
 
     header : str
         The string with the text to be shown in the header cell.
@@ -798,7 +797,7 @@ def get_badge_entries(path_to_notes: str = None,
     ----------
     path_to_notes : str
         The path to the directory that contains the notebooks, either
-        absolute or relative to the script that calls `nbbinder.bind()`.
+        absolute or relative to the script that calls `nbjoint.joint()`.
 
     badges : list of dict
         A list of dictionaries with the necessary information
@@ -849,7 +848,7 @@ def add_badges(path_to_notes: str = None, badges: list = None) -> None:
     ----------
     path_to_notes : str
         The path to the directory that contains the notebooks, either
-        absolute or relative to the script that calls `nbbinder.bind()`.
+        absolute or relative to the script that calls `nbjoint.joint()`.
 
     badges: list of dict
         A list of dictionaries with the necessary information
@@ -939,7 +938,7 @@ def get_navigator_entries(path_to_notes: str = None,
     ----------
     path_to_notes : str
         The path to the directory that contains the notebooks, either
-        absolute or relative to the script that calls `nbbinder.bind()`.
+        absolute or relative to the script that calls `nbjoint.joint()`.
 
     core_navigators : list of str
         A lists of strings with the filenames of each notebook to be
@@ -1002,7 +1001,7 @@ def add_navigators(path_to_notes: str = None,
     ----------
     path_to_notes : str
         The path to the directory that contains the notebooks, either
-        absolute or relative to the script that calls `nbbinder.bind()`.
+        absolute or relative to the script that calls `nbjoint.joint()`.
 
     core_navigators : list of str
         A lists of strings with the filenames of each notebook to be
@@ -1057,18 +1056,18 @@ def add_navigators(path_to_notes: str = None,
         nbformat.write(nb, nb_file)
 
 
-def bind(aux: str = None,
-         path_to_notes: str = None,
-         reindexing: dict = None,
-         contents: dict = None,
-         header: str = '',
-         navigators: dict = None,
-         badges: list = None,
-         exports: list = None,
-         config_filename: str = None) -> None:
-    """Binds the collection of notebooks.
+def joint(aux: str = None,
+          path_to_notes: str = None,
+          reindexing: dict = None,
+          contents: dict = None,
+          header: str = '',
+          navigators: dict = None,
+          badges: list = None,
+          exports: list = None,
+          config_filename: str = None) -> None:
+    """Joints the collection of notebooks.
 
-    It binds the collection of notebooks from either a configuration
+    It joints the collection of notebooks from either a configuration
     file `config_filename` or from the given arguments.
 
     Parameters
@@ -1082,7 +1081,7 @@ def bind(aux: str = None,
 
     path_to_notes : str
         The path to the directory that contains the notebooks, either
-        absolute or relative to the script that calls `nbbinder.bind()`.
+        absolute or relative to the script that calls `nbjoint.joint()`.
 
     reindexing: dict
         A dict with the keys `insert` and `tighten` for the function
@@ -1132,7 +1131,7 @@ version '%s' for fully compatible configuration.",
                 version.parse(config_version),
                 config_filename,
                 version.parse(__config_version__))
-        bind(**config)
+        joint(**config)
     else:
         if reindexing:
             reindex(path_to_notes, **reindexing)
@@ -1166,11 +1165,11 @@ if __name__ == '__main__':
     if len(sys.argv) == 1 or set(sys.argv).intersection({'--help', '-h'}):
         LOGGER.warning("\n Run the script with a configuration file \
 as argument, e.g.")
-        LOGGER.warning("\n   ./nbbinder.py config.yml")
-        LOGGER.warning("\nFor the documentation, type 'pydoc3 nbbinder.py'.\n")
+        LOGGER.warning("\n   ./nbjoint.py config.yml")
+        LOGGER.warning("\nFor the documentation, type 'pydoc3 nbjoint.py'.\n")
     else:
         try:
-            bind(sys.argv[1])
+            joint(sys.argv[1])
         except NotImplementedError:
             LOGGER.info('provided argument is not a yaml file or not \
 a properly formated yaml configuration file.')

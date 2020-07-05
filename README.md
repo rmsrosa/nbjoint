@@ -1,12 +1,12 @@
-# NBBinder - Jupyter Notebook Binder
+# NBJoint - Jupyter Notebook Joint
 
-![Main Tests Workflow Status](https://github.com/rmsrosa/nbbinder/workflows/Main%20Tests/badge.svg) ![Flake8 Lint Test Workflow Status](https://github.com/rmsrosa/nbbinder/workflows/Flake8%20Lint%20Test/badge.svg) ![PDF Export Test Workflow Status](https://github.com/rmsrosa/nbbinder/workflows/PDF%20Export%20Test/badge.svg) ![readthedocs badge](https://readthedocs.org/projects/nbbinder/badge/)
+![Main Tests Workflow Status](https://github.com/rmsrosa/nbjoint/workflows/Main%20Tests/badge.svg) ![Flake8 Lint Test Workflow Status](https://github.com/rmsrosa/nbjoint/workflows/Flake8%20Lint%20Test/badge.svg) ![PDF Export Test Workflow Status](https://github.com/rmsrosa/nbjoint/workflows/PDF%20Export%20Test/badge.svg) ![readthedocs badge](https://readthedocs.org/projects/nbjoint/badge/)
 
-![PyPI - Wheel](https://img.shields.io/pypi/wheel/nbbinder) ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/nbbinder)
+![PyPI - Wheel](https://img.shields.io/pypi/wheel/nbjoint) ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/nbjoint)
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) ![GitHub file size in bytes](https://img.shields.io/github/size/rmsrosa/nbbinder/nbbinder.py?label=module%20size) ![GitHub repo size](https://img.shields.io/github/repo-size/rmsrosa/nbbinder)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) ![GitHub file size in bytes](https://img.shields.io/github/size/rmsrosa/nbjoint/nbjoint.py?label=module%20size) ![GitHub repo size](https://img.shields.io/github/repo-size/rmsrosa/nbjoint)
 
-**NBBinder** generates a navigable book-like structure to a collection of Jupyter notebooks.
+**NBJoint** generates a navigable book-like structure to a collection of Jupyter notebooks.
 
 ## Table of Contents
 
@@ -20,7 +20,7 @@
 
 ## Description
 
-The main function in this module is called `bind()`. It reads a collection of Jupyter notebooks from a given directory and, upon configuration,
+The main function in this module is called `joint()`. It reads a collection of Jupyter notebooks from a given directory and, upon configuration,
 
 - adds a **table of contents** to a selected notebook file, with links to the other notebooks;
 
@@ -36,10 +36,10 @@ The main function in this module is called `bind()`. It reads a collection of Ju
 
 ### A little taste
 
-For instance, upon proper configuration (see section [Notebooks with slides and cloud computing badges](#notebooks-with-slides-and-cloud-computing-badges) below), the collection of bare notebooks in  the folder [Water bare collection](tests/nb_source/nb_water) is bound to the folder
+For instance, upon proper configuration (see section [Notebooks with slides and cloud computing badges](#notebooks-with-slides-and-cloud-computing-badges) below), the collection of bare notebooks in the folder [Water bare collection](tests/nb_source/nb_water) is bound to the folder
 [Water bound collection](tests/nb_builds/nb_water), and, in particular, the file [00.00-Water_Contents.ipynb](tests/nb_builds/nb_water/00.00-Water_Contents.ipynb) receives a table of contents, a header, navigator cells and the badges
 
-[![Colab badge](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/rmsrosa/nbbinder/blob/master/tests/nb_builds/nb_water/00.00-Water_Contents.ipynb)[![My Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/rmsrosa/nbbinder/master?filepath=tests/nb_builds/nb_water/00.00-Water_Contents.ipynb)[![nbviewer](https://img.shields.io/badge/view%20in-nbviewer-orange)](https://nbviewer.jupyter.org/github/rmsrosa/nbbinder/blob/master/tests/nb_builds/nb_water/00.00-Water_Contents.ipynb)[![slides](https://img.shields.io/badge/view-slides-darkgreen)](https://nbviewer.jupyter.org/github/rmsrosa/nbbinder/blob/master/tests/nb_builds/nb_water_slides/00.00-Water_Contents.slides.html)
+[![Colab badge](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/rmsrosa/nbjoint/blob/master/tests/nb_builds/nb_water/00.00-Water_Contents.ipynb)[![My Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/rmsrosa/nbjoint/master?filepath=tests/nb_builds/nb_water/00.00-Water_Contents.ipynb)[![nbviewer](https://img.shields.io/badge/view%20in-nbviewer-orange)](https://nbviewer.jupyter.org/github/rmsrosa/nbjoint/blob/master/tests/nb_builds/nb_water/00.00-Water_Contents.ipynb)[![slides](https://img.shields.io/badge/view-slides-darkgreen)](https://nbviewer.jupyter.org/github/rmsrosa/nbjoint/blob/master/tests/nb_builds/nb_water_slides/00.00-Water_Contents.slides.html)
 
 Below we show some examples in more details.
 
@@ -50,7 +50,7 @@ The most convenient way to use the module, or script, is via a configuration fil
 For instance, consider the following `config_nb_alice.yml`, which is included in the `tests` folder of the repository:
 
 ```yaml
-# Configuration file for the python module NBBinder
+# Configuration file for the python module NBJoint
 
 version: 0.13a
 
@@ -61,7 +61,7 @@ contents:
   toc_title: Table of Contents
   show_index_in_toc: True
 
-header: "NBBinder test on a collection of notebooks named after the chapters of 'Alice's Adventures in Wonderland'"
+header: "NBJoint test on a collection of notebooks named after the chapters of 'Alice's Adventures in Wonderland'"
 
 navigators:
   core_navigators:
@@ -90,26 +90,26 @@ The following collection of indexed notebooks is included in the folder `tests/n
 12.00-Alice's_Evidence.ipynb
 ```
 
-#### Binding the collection
+#### Jointing the collection
 
-One way to bind the collection of notebooks is to import the module and use the `bind()` function with this configuration file as argument:
+One way to joint the collection of notebooks is to import the module and use the `joint()` function with this configuration file as argument:
 
 ```python
-import nbbinder as nbb
-nbb.bind('config_nb_alice.yml')
+import nbjoint as nbj
+nbj.joint('config_nb_alice.yml')
 ```
 
 Or we execute it as a script in the command line:
 
 ```bash
-./nbbinder.py config_nb_alice.yml
+./nbjoint.py config_nb_alice.yml
 ```
 
 In the `tests` directory, the configuration file is actually not in the same folder as the script. The collection is two folders down. This is indicated by the argument `path_to_notes: nb_builds/nb_alice`, given in the configuration file.
 
 #### Result
 
-After binding the notebooks in one of the two ways mentioned above, the following table of contents is inserted in the first notebook `00.00-Alice's_Adventures_in_Wonderland.ipynb`:
+After jointing the notebooks in one of the two ways mentioned above, the following table of contents is inserted in the first notebook `00.00-Alice's_Adventures_in_Wonderland.ipynb`:
 
 ```text
 Table of Contents
@@ -189,7 +189,7 @@ Index
 
 See [00.00-Front-Page.ipynb](tests/nb_builds/nb_grammar_bound/00.00-Front_Page.ipynb) for the actual bound version of the first notebook.
 
-The binder for the notebooks in this collection is configured to include *badges* to render, in [nbviewer](https://nbviewer.jupyter.org/), either the Jupyter notebook itself or the exported version to markdown. The *badge* cell is located just below the header. Just click the badge with the **mouse right button** to open it. If clicking it with the right button, from within github, nothing will happen.
+The jointer for the notebooks in this collection is configured to include *badges* to render, in [nbviewer](https://nbviewer.jupyter.org/), either the Jupyter notebook itself or the exported version to markdown. The *badge* cell is located just below the header. Just click the badge with the **mouse right button** to open it. If clicking it with the right button, from within github, nothing will happen.
 
 ### Notebooks with preheaders
 
@@ -240,14 +240,14 @@ See [00.00-Introduction.ipynb](tests/nb_builds/nb_preheader/00.00-Introduction.i
 
 Notice, above, different forms of displaying the parts of the same lecture note.
 
-The binder for the notebooks in this collection is configured to include a *badge* to open them in [nbviewer](https://nbviewer.jupyter.org/). The *badge* is located just below the header. Just click the badge with the **mouse right button** to open it. If clicking it with the right button, from within github, nothing will happen.
+The jointer for the notebooks in this collection is configured to include a *badge* to open them in [nbviewer](https://nbviewer.jupyter.org/). The *badge* is located just below the header. Just click the badge with the **mouse right button** to open it. If clicking it with the right button, from within github, nothing will happen.
 
 ## Notebooks with slides and cloud computing badges
 
 The following configuration file is used in the collection of files present in the folder [Water](tests/source/nb_water):
 
 ```yaml
-# Configuration file for the python module NBBinder
+# Configuration file for the python module NBJoint
 
 version: 0.13a
 
@@ -258,7 +258,7 @@ contents:
   toc_title: Table of Contents
   show_index_in_toc: True
 
-header: "[*NBBinder test on a collection of notebooks about some thermodynamic properperties of water*](https://github.com/rmsrosa/nbbinder)"
+header: "[*NBJoint test on a collection of notebooks about some thermodynamic properperties of water*](https://github.com/rmsrosa/nbjoint)"
 
 navigators:
   core_navigators:
@@ -269,18 +269,18 @@ navigators:
 
 badges:
   - title: Open in Google Colab
-    url: https://colab.research.google.com/github/rmsrosa/nbbinder/blob/master/tests/nb_builds/nb_water
+    url: https://colab.research.google.com/github/rmsrosa/nbjoint/blob/master/tests/nb_builds/nb_water
     src: https://colab.research.google.com/assets/colab-badge.svg
   - title: Open in binder
-    url: https://mybinder.org/v2/gh/rmsrosa/nbbinder/master?filepath=tests/nb_builds/nb_water
+    url: https://mybinder.org/v2/gh/rmsrosa/nbjoint/master?filepath=tests/nb_builds/nb_water
     src: https://mybinder.org/badge.svg
   - title: View in NBViewer
-    url: https://nbviewer.jupyter.org/github/rmsrosa/nbbinder/blob/master/tests/nb_builds/nb_water
+    url: https://nbviewer.jupyter.org/github/rmsrosa/nbjoint/blob/master/tests/nb_builds/nb_water
     label: view in
     message: nbviewer
     color: orange
   - title: View Slides
-    url: https://nbviewer.jupyter.org/github/rmsrosa/nbbinder/blob/master/tests/nb_builds/nb_water_slides
+    url: https://nbviewer.jupyter.org/github/rmsrosa/nbjoint/blob/master/tests/nb_builds/nb_water_slides
     extension: .slides.html
     label: view
     message: slides
@@ -293,29 +293,29 @@ exports:
       reveal_scroll: True
 ```
 
-After binding the collection, the folder [Water bound collection](tests/nb_builds/nb_water) is created. See [00.00-Water_Contents.ipynb](tests/nb_builds/nb_water/00.00-Water_Contents.ipynb) for the first notebook, containing the table of contents. Now, each notebook has a badge cell with badges to open the notebooks in [Google Colab](https://colab.research.google.com/notebooks/intro.ipynb), [Binder](https://mybinder.org), and [nbviewer](https://nbviewer.jupyter.org/), and a final badge to open the associated [Reveal.JS](https://revealjs.com/) slides.
+After jointing the collection, the folder [Water bound collection](tests/nb_builds/nb_water) is created. See [00.00-Water_Contents.ipynb](tests/nb_builds/nb_water/00.00-Water_Contents.ipynb) for the first notebook, containing the table of contents. Now, each notebook has a badge cell with badges to open the notebooks in [Google Colab](https://colab.research.google.com/notebooks/intro.ipynb), [Binder](https://mybinder.org), and [nbviewer](https://nbviewer.jupyter.org/), and a final badge to open the associated [Reveal.JS](https://revealjs.com/) slides.
 
 For the slides, the folder [Water Slides](tests/nb_builds/nb_water_slides) is created via [nbconvert](https://nbconvert.readthedocs.io/en/latest/), in accordance to the parameters associated with the key `exports` in the configuration file.
 
 The **badge cell** looks like
 
-[![Colab badge](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/rmsrosa/nbbinder/blob/master/tests/nb_builds/nb_water/00.00-Water_Contents.ipynb)[![My Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/rmsrosa/nbbinder/master?filepath=tests/nb_builds/nb_water/00.00-Water_Contents.ipynb)[![nbviewer](https://img.shields.io/badge/view%20in-nbviewer-orange)](https://nbviewer.jupyter.org/github/rmsrosa/nbbinder/blob/master/tests/nb_builds/nb_water/00.00-Water_Contents.ipynb)[![slides](https://img.shields.io/badge/view-slides-darkgreen)](https://nbviewer.jupyter.org/github/rmsrosa/nbbinder/blob/master/tests/nb_builds/nb_water_slides/00.00-Water_Contents.slides.html)
+[![Colab badge](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/rmsrosa/nbjoint/blob/master/tests/nb_builds/nb_water/00.00-Water_Contents.ipynb)[![My Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/rmsrosa/nbjoint/master?filepath=tests/nb_builds/nb_water/00.00-Water_Contents.ipynb)[![nbviewer](https://img.shields.io/badge/view%20in-nbviewer-orange)](https://nbviewer.jupyter.org/github/rmsrosa/nbjoint/blob/master/tests/nb_builds/nb_water/00.00-Water_Contents.ipynb)[![slides](https://img.shields.io/badge/view-slides-darkgreen)](https://nbviewer.jupyter.org/github/rmsrosa/nbjoint/blob/master/tests/nb_builds/nb_water_slides/00.00-Water_Contents.slides.html)
 
 ## Installation
 
-The module is available in [PyPI](https://pypi.org/project/nbbinder/) and installation is done with
+The module is available in [PyPI](https://pypi.org/project/nbjoint/) and installation is done with
 
 ```bash
-pip install nbbinder
+pip install nbjoint
 ```
 
-The module can also be downloaded directly from github.com/rmsrosa/nbbinder.
+The module can also be downloaded directly from github.com/rmsrosa/nbjoint.
 
-More information about the installation processes on the [Installation section of the NBBinder documentation](https://nbbinder.readthedocs.io/en/latest/Installation.html).
+More information about the installation processes on the [Installation section of the NBJoint documentation](https://nbjoint.readthedocs.io/en/latest/Installation.html).
 
 ## Documentation
 
-The documentation of NBBinder is hosted on [nbbinder.readthedocs.io](https://nbbinder.readthedocs.io).
+The documentation of NBJoint is hosted on [nbjoint.readthedocs.io](https://nbjoint.readthedocs.io).
 
 ## Development
 

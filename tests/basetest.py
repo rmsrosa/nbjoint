@@ -1,7 +1,6 @@
-#!/anaconda3/envs/nbbinder/bin/python
 # -*- coding: utf-8 -*-
 '''
-Basic Module for the NBBinder test files
+Basic Module for the NBJoint test files
 '''
 
 import os
@@ -13,7 +12,7 @@ from nbformat.v4.nbbase import new_markdown_cell
 
 from faker import Faker
 
-from context import nbbinder as nbb
+from context import nbjoint as nbj
 
 # Logging level
 #logging.basicConfig(level=logging.WARNING)
@@ -59,27 +58,27 @@ def create_notebooks(path_to_notes, nb_filenames):
 
     for nb_filename in nb_filenames:
         notebook = nbformat.v4.new_notebook()
-        nb_reg = nbb.REG_INS.match(nb_filename)
+        nb_reg = nbj.REG_INS.match(nb_filename)
         title_md = '# ' + \
             nb_reg.group(6).replace('_', ' ').replace('+u003f', '?')
         notebook.cells.insert(0, new_markdown_cell(title_md))
         notebook.cells.insert(1, new_markdown_cell(source=fake.text(),
-                                                   metadata=nbb.SLIDE_SHOW))
+                                                   metadata=nbj.SLIDE_SHOW))
         notebook.cells.insert(2, new_markdown_cell(source=fake.text(),
-                                                   metadata=nbb.SLIDE_SHOW))
+                                                   metadata=nbj.SLIDE_SHOW))
         notebook.cells.insert(3, new_markdown_cell(source=fake.text(),
-                                                   metadata=nbb.SLIDE_SHOW))
+                                                   metadata=nbj.SLIDE_SHOW))
         nbformat.write(notebook, os.path.join(path_to_notes, nb_filename))
 
     logger.info("\n# Notebooks created in '%s'", path_to_notes)
 
 
-def bind_test(source_path, build_path, config_file):
+def joint_test(source_path, build_path, config_file):
     """
-    Binds the notebooks.
+    Joints the notebooks.
 
     If different, copies the notebook files from the `source_path` to
-    the `build_path` and binds the notebooks in `build_path` according
+    the `build_path` and joints the notebooks in `build_path` according
     to the configuration file `config_file`.
     """
     if build_path != source_path:
@@ -87,7 +86,7 @@ def bind_test(source_path, build_path, config_file):
 
         shutil.copytree(source_path, build_path)
 
-    logger.info("\n# Binding the notebooks in '%s' with '%s'",
+    logger.info("\n# Jointing the notebooks in '%s' with '%s'",
                  source_path, config_file)
 
-    nbb.bind(config_file)
+    nbj.joint(config_file)

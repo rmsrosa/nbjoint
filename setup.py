@@ -1,31 +1,30 @@
-#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
 # Based on *Packaging Python Projects*
 # at https://packaging.python.org/tutorials/packaging-projects/
 """
-Setup for NBBinder module
+Setup for NBJoint module
 """
 import setuptools
 
-import nbbinder as nbb
+import nbjoint as nbj
 
 
 setuptools.setup(
-    name='nbbinder',
-    version=nbb.__version__,
+    name='nbjoint',
+    version=nbj.__version__,
     author='Ricardo M. S. Rosa',
     author_email='rmsrosa@gmail.com',
     description='Generates a navigable book-like structure \
         to a collection of jupyter notebooks',
     long_description=open('README.md', 'r').read(),
     long_description_content_type='text/markdown',
-    url='https://github.com/rmsrosa/nbbinder',
+    url='https://github.com/rmsrosa/nbjoint',
     project_urls={
-        "Documentation": "https://nbbinder.readthedocs.io/",
-        "Source Code": "https://github.com/rmsrosa/nbbinder",
+        "Documentation": "https://nbjoint.readthedocs.io/",
+        "Source Code": "https://github.com/rmsrosa/nbjoint",
     },
-    py_modules=["nbbinder"],
+    py_modules=["nbjoint"],
     classifiers=[
         'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
