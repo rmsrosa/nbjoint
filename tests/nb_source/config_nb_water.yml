@@ -1,0 +1,44 @@
+# Configuration file for the python module NBBinder
+
+version: 0.13a
+
+path_to_notes: nb_builds/nb_water
+
+contents:
+  toc_nb_name: 00.00-Water_Contents.ipynb
+  toc_title: Table of Contents
+  show_index_in_toc: True
+
+header: "[*NBBinder test on a collection of notebooks about some thermodynamic properperties of water*](https://github.com/rmsrosa/nbbinder)"
+
+navigators:
+  core_navigators:
+    - 00.00-Water_Contents.ipynb
+    - BA.00-References.ipynb
+  show_nb_title_in_nav: True
+  show_index_in_nav: False
+
+badges:
+  - title: Open in Google Colab
+    url: https://colab.research.google.com/github/rmsrosa/nbbinder/blob/master/tests/nb_builds/nb_water
+    src: https://colab.research.google.com/assets/colab-badge.svg
+  - title: Open in binder
+    url: https://mybinder.org/v2/gh/rmsrosa/nbbinder/master?filepath=tests/nb_builds/nb_water
+    src: https://mybinder.org/badge.svg
+  - title: View in NBViewer
+    url: https://nbviewer.jupyter.org/github/rmsrosa/nbbinder/blob/master/tests/nb_builds/nb_water
+    label: view in
+    message: nbviewer
+    color: orange
+  - title: View Slides
+    url: https://nbviewer.jupyter.org/github/rmsrosa/nbbinder/blob/master/tests/nb_builds/nb_water_slides
+    extension: .slides.html
+    label: view
+    message: slides
+    color: darkgreen
+
+exports:
+  - export_path: nb_builds/nb_water_slides
+    exporter_name: slides
+    exporter_args:
+      reveal_scroll: True

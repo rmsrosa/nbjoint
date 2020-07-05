@@ -1,0 +1,41 @@
+# Configuration file for the python module NBBinder
+
+version: 0.13a
+
+path_to_notes: nb_export_builds/nb_water_export
+
+contents:
+  toc_nb_name: 00.00-Water_Contents.ipynb
+  toc_title: Table of Contents
+  show_index_in_toc: True
+
+header: "[*NBBinder test on a collection of notebooks about some thermodynamic properperties of water*](https://github.com/rmsrosa/nbbinder)"
+
+navigators:
+  core_navigators:
+    - 00.00-Water_Contents.ipynb
+    - BA.00-References.ipynb
+  show_nb_title_in_nav: True
+  show_index_in_nav: False
+
+badges:
+  - title: View Markdown
+    url: https://nbviewer.jupyter.org/github/rmsrosa/nbbinder/blob/master/tests/nb_export_builds/nb_water_md
+    extension: .md
+    label: view
+    message: markdown
+    color: orange
+  - title: View PDF
+    url: https://nbviewer.jupyter.org/github/rmsrosa/nbbinder/blob/master/tests/nb_export_builds/nb_water_pdf
+    extension: .pdf
+    label: view
+    message: pdf
+    color: blueviolet
+
+exports:
+  - export_path: nb_export_builds/nb_water_md
+    exporter_name: markdown
+  - export_path: nb_export_builds/nb_water_pdf
+    exporter_name: pdf
+    exporter_args:
+      latex_count: 1

@@ -1,0 +1,18 @@
+# Configuration file for the python module NBBinder
+
+version: 0.13a
+
+path_to_notes: nb_builds/nb_alice
+
+contents:
+  toc_nb_name: 00.00-Alice's_Adventures_in_Wonderland.ipynb
+  toc_title: Table of Contents
+  show_index_in_toc: True
+
+header: "NBBinder test on a collection of notebooks named after the chapters of 'Alice's Adventures in Wonderland'"
+
+navigators:
+  core_navigators:
+    - 00.00-Alice's_Adventures_in_Wonderland.ipynb
+  show_nb_title_in_nav: False
+  show_index_in_nav: False

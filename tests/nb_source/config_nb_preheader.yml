@@ -1,0 +1,26 @@
+# Configuration file for the python module NBBinder
+
+version: 0.13a
+
+path_to_notes: nb_builds/nb_preheader
+
+contents:
+  toc_nb_name: 00.00-Introduction.ipynb
+  toc_title: Contents
+  show_index_in_toc: True
+
+header: "[*Preheader test for the NBBinder module*](https://github.com/rmsrosa/nbbinder)"
+
+navigators:
+  core_navigators:
+    - 00.00-Introduction.ipynb
+  show_nb_title_in_nav: True
+  show_index_in_nav: False
+
+badges:
+  - title: View in NBViewer
+    url: https://nbviewer.jupyter.org/github/rmsrosa/nbbinder/blob/master/tests/nb_builds/nb_preheader
+    label: view in
+    message: nbviewer
+    color: orange
+        

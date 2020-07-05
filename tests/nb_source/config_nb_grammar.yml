@@ -1,0 +1,36 @@
+# Configuration file for the python module NBBinder
+
+version: 0.13a
+
+path_to_notes: nb_builds/nb_grammar_bound
+
+contents:
+  toc_nb_name: 00.00-Front_Page.ipynb
+  toc_title: Contents
+  show_index_in_toc: True
+
+header: "[*Grammar-book test for the NBBinder module*](https://github.com/rmsrosa/nbbinder)"
+
+navigators:
+  core_navigators:
+    - 00.00-Front_Page.ipynb
+    - BB.00-Bibliography.ipynb
+  show_nb_title_in_nav: True
+  show_index_in_nav: False
+
+badges:
+  - title: View in NBViewer
+    url: https://nbviewer.jupyter.org/github/rmsrosa/nbbinder/blob/master/tests/nb_builds/nb_alice
+    label: view in
+    message: nbviewer
+    color: orange
+  - title: View Markdown
+    url: https://github.com/rmsrosa/nbbinder/blob/master/tests/nb_builds/nb_grammar_md
+    extension: .md
+    label: view
+    message: markdown
+    color: blueviolet
+
+exports:
+  - export_path: nb_builds/nb_grammar_md
+    exporter_name: markdown            

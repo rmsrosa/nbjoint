@@ -1,0 +1,16 @@
+# Configuration file for the python module NBBinder
+
+version: 0.13a
+
+path_to_notes: nb_builds/nb_grammar_bound
+
+contents:
+  toc_nb_name: 00.00-Front_Page.ipynb
+  toc_title: Table of Contents
+  show_index_in_toc: True
+
+navigators:
+  core_navigators:
+    - 00.00-Front_Page.ipynb
+  show_nb_title_in_nav: False
+  show_index_in_nav: False
